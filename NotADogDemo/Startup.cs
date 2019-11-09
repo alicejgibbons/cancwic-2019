@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NotADog.Models;
 
 namespace NotADog
 {
@@ -38,6 +39,8 @@ namespace NotADog
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            //testing
+            services.Configure<AzureStorageConfig>(Configuration.GetSection("AzureStorageConfig"));
 
             services.AddMvc(options => options.Filters.Add<OptionsValidationExceptionFilterAttribute>()).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -65,6 +68,10 @@ namespace NotADog
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapSpaFallbackRoute(
+                  name: "spa-fallback",
+                  defaults: new { controller = "Home", action = "Index" });
             });
         }
     }

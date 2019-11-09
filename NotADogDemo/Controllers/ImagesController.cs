@@ -7,16 +7,20 @@ using Microsoft.Azure.Storage.Blob;
 using NotADog.Services;
 using System.Collections.Generic;
 using System.IO;
+using NotADog.Models;
+using Microsoft.Extensions.Options;
 
 namespace NotADog.Controllers
 {
     public class ImagesController : Controller
     {
         private readonly IBlobStorageManager _blobStorageManager;
+        private readonly AzureStorageConfig storageConfig = null;
 
-        public ImagesController(IBlobStorageManager blobStorageManager)
+        public ImagesController(IBlobStorageManager blobStorageManager, IOptions<AzureStorageConfig> config)
         {
             _blobStorageManager = blobStorageManager ?? throw new ArgumentNullException(nameof(blobStorageManager));
+            storageConfig = config.Value;
         }
 
         public IActionResult Index()
