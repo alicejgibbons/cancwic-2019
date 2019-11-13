@@ -7,10 +7,12 @@ This workshop is for beginners who would like to learn more about the cloud try 
 
 #WeTheNorth vs. #SheTheNorth Analysis app: https://aka.ms/northchamps2019
 
-## Twitter Sentiment Analysis Application
+
+## Custom Vision Project
+
+For step-by-step instructions on how to create and deploy a Custom Vision project, navigate to the CustomVisionProject folder.
+
+
+## Twitter Sentiment Analysis
 
 Link to Blog: https://blogs.msdn.microsoft.com/deeperinsights/2017/07/12/how-to-measure-twitter-sentiment-with-azure-logic-apps-sql-database-and-power-bi/
-
-## Custom Vision Resources
-
-See Custom Vision Folder.
