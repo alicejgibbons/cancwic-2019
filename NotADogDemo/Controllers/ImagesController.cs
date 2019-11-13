@@ -52,6 +52,14 @@ namespace NotADog.Controllers
                 tag_file_list.Add(text);
             }
 
+            System.Diagnostics.Debug.WriteLine($"Image List creation completed, list contents: {files.Count}");
+            System.Diagnostics.Debug.WriteLine($"List creation completed, list size: {tag_file_list.Count}");
+
+            for (int i=0; i < tag_file_list.Count; i++)
+            {
+                System.Diagnostics.Debug.WriteLine($"Item URI {files[i]} tags: {tag_file_list[i]}");
+            }
+
             if (tag_files.Count == 0)
             {
                 _blobStorageManager.UploadFile("https://github.com/alicejgibbons/cancwic-2019/raw/master/medias/bianca-tennis", "tags");
